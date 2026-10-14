@@ -21,7 +21,7 @@ const config: Config = {
     baseUrl: '/open-prompting-guide/',
 
     organizationName: 'khaledlajili',
-    projectName: 'open-modeling-guide',
+    projectName: 'open-prompting-guide',
 
     onBrokenLinks: 'throw',
 
