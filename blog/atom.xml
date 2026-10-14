@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://khaledlajili.github.io/open-prompting-guide/blog</id>
+    <title>Open Prompting Guide Blog</title>
+    <updated>2026-10-05T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://khaledlajili.github.io/open-prompting-guide/blog"/>
+    <subtitle>Open Prompting Guide Blog</subtitle>
+    <icon>https://khaledlajili.github.io/open-prompting-guide/img/logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[From Simple Instructions to Advanced Reasoning Techniques]]></title>
+        <id>https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning</id>
+        <link href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning"/>
+        <updated>2026-10-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Early interactions with large language models often relied on simple, direct instructions. Today, the most effective prompts go far beyond basic commands—they guide the model through structured reasoning processes that significantly improve performance on complex problems.]]></summary>
+        <content type="html"><![CDATA[<p>Early interactions with large language models often relied on simple, direct instructions. Today, the most effective prompts go far beyond basic commands—they guide the model through structured reasoning processes that significantly improve performance on complex problems.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-challenge-limits-of-basic-prompting">The Challenge: Limits of Basic Prompting<a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#the-challenge-limits-of-basic-prompting" class="hash-link" aria-label="Direct link to The Challenge: Limits of Basic Prompting" title="Direct link to The Challenge: Limits of Basic Prompting" translate="no">​</a></h2>
+<p>Direct instructions work well for straightforward tasks, but they frequently fail when the problem requires multi-step reasoning, tool use, or careful planning. Models can produce confident but incorrect answers when left to generate responses in a single step.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-advanced-techniques-solve-the-problem">How Advanced Techniques Solve the Problem<a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#how-advanced-techniques-solve-the-problem" class="hash-link" aria-label="Direct link to How Advanced Techniques Solve the Problem" title="Direct link to How Advanced Techniques Solve the Problem" translate="no">​</a></h2>
+<p>Modern prompting methods give the model a reasoning framework:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-chain-of-thought-cot">1. <strong>Chain-of-Thought (CoT)</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#1-chain-of-thought-cot" class="hash-link" aria-label="Direct link to 1-chain-of-thought-cot" title="Direct link to 1-chain-of-thought-cot" translate="no">​</a></h3>
+<p>Encouraging the model to think step by step dramatically improves accuracy on math, logic, and multi-hop questions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-self-consistency--reflection">2. <strong>Self-Consistency &amp; Reflection</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#2-self-consistency--reflection" class="hash-link" aria-label="Direct link to 2-self-consistency--reflection" title="Direct link to 2-self-consistency--reflection" translate="no">​</a></h3>
+<p>Generating multiple reasoning paths and selecting the most consistent answer reduces errors.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-agentic-patterns-react-tool-use">3. <strong>Agentic Patterns (ReAct, Tool Use)</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#3-agentic-patterns-react-tool-use" class="hash-link" aria-label="Direct link to 3-agentic-patterns-react-tool-use" title="Direct link to 3-agentic-patterns-react-tool-use" translate="no">​</a></h3>
+<p>Combining reasoning with actions allows models to use external tools, search for information, and iteratively refine their approach.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-practical-impact">The Practical Impact<a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#the-practical-impact" class="hash-link" aria-label="Direct link to The Practical Impact" title="Direct link to The Practical Impact" translate="no">​</a></h2>
+<p>Moving from basic instructions to structured reasoning techniques delivers:</p>
+<ul>
+<li class=""><strong>Higher accuracy</strong> on complex and multi-step tasks</li>
+<li class=""><strong>Greater transparency</strong> into how the model arrives at answers</li>
+<li class=""><strong>Better reliability</strong> in production systems</li>
+<li class=""><strong>Support for more ambitious use cases</strong> such as research, planning, and multi-agent workflows</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="getting-started">Getting Started<a href="https://khaledlajili.github.io/open-prompting-guide/blog/from-instructions-to-reasoning#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
+<p>Dive into the <a class="" href="https://khaledlajili.github.io/open-prompting-guide/docs/category/core-techniques">Core Techniques</a> section of the Open Prompting Guide to explore Chain-of-Thought, Self-Consistency, ReAct, Tree of Thoughts, and other advanced methods.</p>
+<hr>
+<p><em>Ready to move beyond basic prompts? <a class="" href="https://khaledlajili.github.io/open-prompting-guide/docs/category/core-techniques">Explore advanced reasoning techniques</a>.</em></p>]]></content>
+        <author>
+            <name>Khaled Lajili</name>
+            <uri>https://github.com/khaledlajili</uri>
+        </author>
+        <category label="Prompt Engineering" term="Prompt Engineering"/>
+        <category label="Chain of Thought" term="Chain of Thought"/>
+        <category label="Advanced" term="Advanced"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Why Prompt Engineering Matters for Better AI Results]]></title>
+        <id>https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters</id>
+        <link href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters"/>
+        <updated>2026-09-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Prompt engineering is the practice of carefully designing the instructions you give to large language models. When done well, it dramatically improves the quality, reliability, and usefulness of AI outputs—turning vague or mediocre responses into precise, high-value results.]]></summary>
+        <content type="html"><![CDATA[<p>Prompt engineering is the practice of carefully designing the instructions you give to large language models. When done well, it dramatically improves the quality, reliability, and usefulness of AI outputs—turning vague or mediocre responses into precise, high-value results.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-challenge-unpredictable-ai-outputs">The Challenge: Unpredictable AI Outputs<a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#the-challenge-unpredictable-ai-outputs" class="hash-link" aria-label="Direct link to The Challenge: Unpredictable AI Outputs" title="Direct link to The Challenge: Unpredictable AI Outputs" translate="no">​</a></h2>
+<p>Large language models are powerful but sensitive to how you ask questions. Small changes in wording, structure, or context can lead to completely different answers. Without deliberate prompting techniques, users often receive incomplete, hallucinated, or poorly structured responses.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-prompt-engineering-solves-the-problem">How Prompt Engineering Solves the Problem<a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#how-prompt-engineering-solves-the-problem" class="hash-link" aria-label="Direct link to How Prompt Engineering Solves the Problem" title="Direct link to How Prompt Engineering Solves the Problem" translate="no">​</a></h2>
+<p>Effective prompting provides a structured way to guide model behavior:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-clarity-of-intent">1. <strong>Clarity of Intent</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#1-clarity-of-intent" class="hash-link" aria-label="Direct link to 1-clarity-of-intent" title="Direct link to 1-clarity-of-intent" translate="no">​</a></h3>
+<p>Explicit instructions reduce ambiguity. The model no longer has to guess what you want—it follows a clear path.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-control-over-reasoning">2. <strong>Control Over Reasoning</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#2-control-over-reasoning" class="hash-link" aria-label="Direct link to 2-control-over-reasoning" title="Direct link to 2-control-over-reasoning" translate="no">​</a></h3>
+<p>Techniques such as Chain-of-Thought and step-by-step instructions force the model to show its work, improving accuracy on complex tasks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-consistency-across-use-cases">3. <strong>Consistency Across Use Cases</strong><a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#3-consistency-across-use-cases" class="hash-link" aria-label="Direct link to 3-consistency-across-use-cases" title="Direct link to 3-consistency-across-use-cases" translate="no">​</a></h3>
+<p>Well-designed prompts produce repeatable results, making AI systems more reliable for production use.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-practical-impact">The Practical Impact<a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#the-practical-impact" class="hash-link" aria-label="Direct link to The Practical Impact" title="Direct link to The Practical Impact" translate="no">​</a></h2>
+<p>Applying good prompt engineering practices leads to:</p>
+<ul>
+<li class=""><strong>Higher quality answers</strong> with fewer hallucinations</li>
+<li class=""><strong>Faster iteration</strong> when refining outputs</li>
+<li class=""><strong>Better performance</strong> on reasoning, coding, and analysis tasks</li>
+<li class=""><strong>Reduced cost</strong> by getting useful results in fewer attempts</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="getting-started">Getting Started<a href="https://khaledlajili.github.io/open-prompting-guide/blog/why-prompt-engineering-matters#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
+<p>Explore the <a class="" href="https://khaledlajili.github.io/open-prompting-guide/docs/intro">Open Prompting Guide</a> to learn practical techniques—from zero-shot and few-shot prompting to advanced methods like Chain-of-Thought, ReAct, and Tree of Thoughts.</p>
+<hr>
+<p><em>Want to improve the quality of your AI interactions? <a class="" href="https://khaledlajili.github.io/open-prompting-guide/docs/intro">Start with the fundamentals</a>.</em></p>]]></content>
+        <author>
+            <name>Khaled Lajili</name>
+            <uri>https://github.com/khaledlajili</uri>
+        </author>
+        <category label="Prompt Engineering" term="Prompt Engineering"/>
+        <category label="Fundamentals" term="Fundamentals"/>
+        <category label="LLM" term="LLM"/>
+    </entry>
+</feed>

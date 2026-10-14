@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkopen_prompt_engineering_guide=globalThis.webpackChunkopen_prompt_engineering_guide||[]).push([[8365],{2640:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/open-prompting-guide/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

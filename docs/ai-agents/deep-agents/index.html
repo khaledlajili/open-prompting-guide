@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-agents/deep-agents" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Deep Agents | Open Prompting Guide</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://khaledlajili.github.io/open-prompting-guide/docs/ai-agents/deep-agents"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Deep Agents | Open Prompting Guide"><meta data-rh="true" name="description" content="You&#x27;ve learned how function calling allows AI agents to interact with external tools, how context engineering improves their behavior, and how multiple agents can collaborate on complex tasks."><meta data-rh="true" property="og:description" content="You&#x27;ve learned how function calling allows AI agents to interact with external tools, how context engineering improves their behavior, and how multiple agents can collaborate on complex tasks."><link data-rh="true" rel="icon" href="/open-prompting-guide/img/logo.png"><link data-rh="true" rel="canonical" href="https://khaledlajili.github.io/open-prompting-guide/docs/ai-agents/deep-agents"><link data-rh="true" rel="alternate" href="https://khaledlajili.github.io/open-prompting-guide/docs/ai-agents/deep-agents" hreflang="en"><link data-rh="true" rel="alternate" href="https://khaledlajili.github.io/open-prompting-guide/docs/ai-agents/deep-agents" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AI Agents","item":"https://khaledlajili.github.io/open-prompting-guide/docs/category/ai-agents"},{"@type":"ListItem","position":2,"name":"Deep Agents","item":"https://khaledlajili.github.io/open-prompting-guide/docs/ai-agents/deep-agents"}]}</script><link rel="alternate" type="application/rss+xml" href="/open-prompting-guide/blog/rss.xml" title="Open Prompting Guide RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/open-prompting-guide/blog/atom.xml" title="Open Prompting Guide Atom Feed">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-37CJXPBZTC"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-37CJXPBZTC",{anonymize_ip:!0})</script><link rel="stylesheet" href="/open-prompting-guide/assets/css/styles.3123e922.css">
+<script src="/open-prompting-guide/assets/js/runtime~main.b4d359b8.js" defer="defer"></script>
+<script src="/open-prompting-guide/assets/js/main.452c1edd.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/open-prompting-guide/img/logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/open-prompting-guide/"><div class="navbar__logo"><img src="/open-prompting-guide/img/logo.png" alt="Open Prompting Guide Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/open-prompting-guide/img/logo.png" alt="Open Prompting Guide Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Open Prompting Guide</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/open-prompting-guide/docs/intro">Guide</a><a class="navbar__item navbar__link" href="/open-prompting-guide/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/khaledlajili/open-prompting-guide/pdf/Open-Prompting-Guide.pdf" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-pdf-link">
+    <span style="display:inline-flex;align-items:center;gap:6px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download PDF
+    </span>
+  </a><a href="https://github.com/khaledlajili/open-prompting-guide" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/open-prompting-guide/docs/intro"><span title="Introduction to Prompt Engineering" class="linkLabel_WmDU">Introduction to Prompt Engineering</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/open-prompting-guide/docs/category/core-techniques"><span title="Core Techniques" class="categoryLinkLabel_W154">Core Techniques</span></a><button aria-label="Expand sidebar category &#x27;Core Techniques&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/open-prompting-guide/docs/category/ai-agents"><span title="AI Agents" class="categoryLinkLabel_W154">AI Agents</span></a><button aria-label="Collapse sidebar category &#x27;AI Agents&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/open-prompting-guide/docs/ai-agents/introduction"><span title="Introduction to AI Agents" class="linkLabel_WmDU">Introduction to AI Agents</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/open-prompting-guide/docs/ai-agents/ai-workflows-vs-ai-agents"><span title="AI Workflows vs. AI Agents" class="linkLabel_WmDU">AI Workflows vs. AI Agents</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/open-prompting-guide/docs/ai-agents/context-engineering"><span title="Context Engineering for AI Agents" class="linkLabel_WmDU">Context Engineering for AI Agents</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/open-prompting-guide/docs/ai-agents/context-engineering-deep-dive"><span title="Context Engineering Deep Dive: Building a Deep Research Agent" class="linkLabel_WmDU">Context Engineering Deep Dive: Building a Deep Research Agent</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/open-prompting-guide/docs/ai-agents/function-calling"><span title="Function Calling in AI Agents" class="linkLabel_WmDU">Function Calling in AI Agents</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/open-prompting-guide/docs/ai-agents/deep-agents"><span title="Deep Agents" class="linkLabel_WmDU">Deep Agents</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/open-prompting-guide/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/open-prompting-guide/docs/category/ai-agents"><span>AI Agents</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Deep Agents</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Deep Agents</h1></header>
+<p>You&#x27;ve learned how function calling allows AI agents to interact with external tools, how context engineering improves their behavior, and how multiple agents can collaborate on complex tasks.</p>
+<p>But what happens when a task becomes so large that a simple agent struggles to manage it?</p>
+<p>Imagine asking an AI assistant to research an entire industry, compare competitors, analyze market trends, examine dozens of sources, and produce a comprehensive report. The agent must plan its work, keep track of progress, remember important findings, and verify its conclusions.</p>
+<p>A basic agent that handles everything in one continuous interaction may lose track of important details, repeat previous work, or overlook unfinished tasks.</p>
+<p>To handle these challenges, developers are exploring more sophisticated agent architectures known as <strong>Deep Agents</strong>.</p>
+<p>In this guide, you&#x27;ll learn what Deep Agents are, how they approach complex tasks, and how planning, specialized agents, persistent memory, context engineering, and verification work together to improve reliability.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-are-deep-agents">1. What Are Deep Agents?<a href="#1-what-are-deep-agents" class="hash-link" aria-label="Direct link to 1. What Are Deep Agents?" title="Direct link to 1. What Are Deep Agents?" translate="no">​</a></h2>
+<p><strong>Deep Agents are AI agent systems designed to handle complex, multi-step tasks by combining structured planning, persistent context, specialized execution, and verification.</strong></p>
+<p>Unlike a simple agent that responds to a request with a single tool call or a short sequence of actions, a Deep Agent is designed to coordinate a larger body of work toward a long-term goal.</p>
+<p>For example, a basic research agent might search for information about a company and summarize the results.</p>
+<p>A Deep Agent could approach the same task by:</p>
+<ol>
+<li class="">Breaking the research question into smaller tasks.</li>
+<li class="">Creating a structured plan and tracking its progress.</li>
+<li class="">Delegating searches to specialized sub-agents.</li>
+<li class="">Saving findings and intermediate work outside the immediate conversation.</li>
+<li class="">Investigating gaps or conflicting information.</li>
+<li class="">Checking whether the research objectives have been met.</li>
+<li class="">Combining the results into a coherent final report.</li>
+</ol>
+<p>The difference is not simply the number of steps involved. It is how the system <strong>organizes, coordinates, remembers, and verifies its work over an extended task</strong>.</p>
+<p>The term <em>Deep Agents</em> describes an emerging approach to agent design rather than one universally standardized architecture. Different implementations may combine these capabilities in different ways.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shallow-agents-vs-deep-agents">Shallow Agents vs. Deep Agents<a href="#shallow-agents-vs-deep-agents" class="hash-link" aria-label="Direct link to Shallow Agents vs. Deep Agents" title="Direct link to Shallow Agents vs. Deep Agents" translate="no">​</a></h3>
+<p>For learning purposes, it helps to compare two broad approaches.</p>
+<table><thead><tr><th>Aspect</th><th>Simpler Agent Systems</th><th>Deep Agent Systems</th></tr></thead><tbody><tr><td><strong>Planning</strong></td><td>May handle a short sequence of actions</td><td>Maintain structured plans for larger tasks</td></tr><tr><td><strong>Task management</strong></td><td>Often relies on the immediate interaction</td><td>Tracks progress across multiple subtasks</td></tr><tr><td><strong>Execution</strong></td><td>May handle most work in one agent</td><td>Can delegate work to specialized sub-agents</td></tr><tr><td><strong>Memory</strong></td><td>Often relies heavily on the current context</td><td>Can store intermediate work in external memory</td></tr><tr><td><strong>Context management</strong></td><td>May accumulate information in one conversation</td><td>Can organize, retrieve, and summarize relevant context</td></tr><tr><td><strong>Verification</strong></td><td>May rely mainly on the final response</td><td>Can include dedicated checks and evaluation stages</td></tr><tr><td><strong>Best suited for</strong></td><td>Straightforward, bounded tasks</td><td>Complex tasks involving many dependent operations</td></tr></tbody></table>
+<p>This comparison describes common design tendencies, not strict categories. A simple architecture can still be reliable, and a complex architecture can still fail.</p>
+<p>The objective is not to make every agent deep. It is to provide the structure required by tasks that cannot be handled reliably through a simpler approach.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-planning-turning-large-goals-into-manageable-tasks">2. Planning: Turning Large Goals into Manageable Tasks<a href="#2-planning-turning-large-goals-into-manageable-tasks" class="hash-link" aria-label="Direct link to 2. Planning: Turning Large Goals into Manageable Tasks" title="Direct link to 2. Planning: Turning Large Goals into Manageable Tasks" translate="no">​</a></h2>
+<p>One of the most important characteristics of a Deep Agent is its ability to maintain a structured plan.</p>
+<p>When a task involves many operations, the agent needs more than a general instruction to complete the work. It needs to understand what must be accomplished, which steps are necessary, and what remains unfinished.</p>
+<p>Consider this request:</p>
+<blockquote>
+<p>Research the market for cloud-based business software and prepare a report for small-business owners.</p>
+</blockquote>
+<p>This request contains several distinct objectives. The agent may need to examine market trends, identify customer challenges, compare competing products, and summarize the opportunities.</p>
+<p>Attempting to complete everything without a plan makes it easier to overlook important questions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-structured-plan">Create a Structured Plan<a href="#create-a-structured-plan" class="hash-link" aria-label="Direct link to Create a Structured Plan" title="Direct link to Create a Structured Plan" translate="no">​</a></h3>
+<p>The agent could begin by creating a task list:</p>
+<table><thead><tr><th>Task ID</th><th>Task</th><th>Status</th></tr></thead><tbody><tr><td>1</td><td>Identify major market trends</td><td><code>todo</code></td></tr><tr><td>2</td><td>Investigate small-business needs</td><td><code>todo</code></td></tr><tr><td>3</td><td>Compare competing products</td><td><code>todo</code></td></tr><tr><td>4</td><td>Identify adoption barriers</td><td><code>todo</code></td></tr><tr><td>5</td><td>Synthesize the findings into a report</td><td><code>todo</code></td></tr></tbody></table>
+<p>As the work progresses, the agent updates the status of each task.</p>
+<p>For example, after completing the first search, the agent records its findings and marks the corresponding task as completed.</p>
+<p>The plan becomes a representation of the work that has been completed and the work that remains.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-plan-should-evolve">A Plan Should Evolve<a href="#a-plan-should-evolve" class="hash-link" aria-label="Direct link to A Plan Should Evolve" title="Direct link to A Plan Should Evolve" translate="no">​</a></h3>
+<p>A Deep Agent should not necessarily treat its initial plan as an unchangeable sequence.</p>
+<p>Suppose the competitor research reveals that most products target large enterprises rather than small businesses. This finding may suggest that the agent should investigate affordable alternatives or products designed for smaller companies.</p>
+<p>The agent can update its plan to address the newly discovered question.</p>
+<p>Similarly, if a search fails, it can retry, use another source, or record that the information could not be obtained.</p>
+<p>This ability to revise a plan is particularly useful for tasks where the correct next step depends on what the agent discovers.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-planning-matters">Why Planning Matters<a href="#why-planning-matters" class="hash-link" aria-label="Direct link to Why Planning Matters" title="Direct link to Why Planning Matters" translate="no">​</a></h3>
+<p>Structured planning helps an agent:</p>
+<ul>
+<li class="">Keep track of outstanding work.</li>
+<li class="">Avoid repeatedly performing completed tasks.</li>
+<li class="">Identify dependencies between subtasks.</li>
+<li class="">Recover from failures.</li>
+<li class="">Determine when the overall objective has been satisfied.</li>
+</ul>
+<p>However, a task list alone does not guarantee successful execution. The system must also track task state correctly and verify that completed tasks actually produced the expected results.</p>
+<p><strong>The key idea:</strong> A plan turns a broad objective into manageable work that the agent can track, execute, and revise.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-orchestrator-and-sub-agent-architecture">3. Orchestrator and Sub-Agent Architecture<a href="#3-orchestrator-and-sub-agent-architecture" class="hash-link" aria-label="Direct link to 3. Orchestrator and Sub-Agent Architecture" title="Direct link to 3. Orchestrator and Sub-Agent Architecture" translate="no">​</a></h2>
+<p>As tasks become more complex, one agent may have too many responsibilities to manage efficiently.</p>
+<p>Imagine a research agent that must plan searches, operate tools, organize files, summarize findings, check sources, track task statuses, and write a report.</p>
+<p>Every responsibility introduces additional instructions and information. As the task progresses, the agent&#x27;s context can grow substantially.</p>
+<p>One approach is to divide the work among an <strong>orchestrator</strong> and several <strong>specialized sub-agents</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-an-orchestrator">What Is an Orchestrator?<a href="#what-is-an-orchestrator" class="hash-link" aria-label="Direct link to What Is an Orchestrator?" title="Direct link to What Is an Orchestrator?" translate="no">​</a></h3>
+<p>An <strong>orchestrator</strong> coordinates the overall task.</p>
+<p>It understands the user&#x27;s goal, creates the plan, determines which work should be delegated, tracks progress, and combines the results into a final response.</p>
+<p>It does not necessarily perform every operation itself.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-are-sub-agents">What Are Sub-Agents?<a href="#what-are-sub-agents" class="hash-link" aria-label="Direct link to What Are Sub-Agents?" title="Direct link to What Are Sub-Agents?" translate="no">​</a></h3>
+<p><strong>Sub-agents</strong> are agents assigned specific responsibilities within the larger task.</p>
+<p>For example, a research system might include:</p>
+<table><thead><tr><th>Agent</th><th>Responsibility</th></tr></thead><tbody><tr><td><strong>Research Orchestrator</strong></td><td>Plans the investigation, delegates tasks, and coordinates execution</td></tr><tr><td><strong>Search Agent</strong></td><td>Searches for relevant information and returns findings</td></tr><tr><td><strong>Analysis Agent</strong></td><td>Examines collected information and identifies patterns</td></tr><tr><td><strong>Verification Agent</strong></td><td>Checks claims, evidence, and task completion</td></tr><tr><td><strong>Writing Agent</strong></td><td>Organizes verified findings into a report</td></tr></tbody></table>
+<p>Each sub-agent receives the information needed for its assigned task and returns results to the orchestrator.</p>
+<p>This separation allows different agents to use different instructions, tools, and models according to their responsibilities.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-do-they-work-together">How Do They Work Together?<a href="#how-do-they-work-together" class="hash-link" aria-label="Direct link to How Do They Work Together?" title="Direct link to How Do They Work Together?" translate="no">​</a></h3>
+<p>Consider a user who asks for a report comparing three competitors.</p>
+<p>The process could follow this sequence:</p>
+<ol>
+<li class="">The orchestrator identifies the information needed for each competitor.</li>
+<li class="">It creates research tasks and assigns them to search agents.</li>
+<li class="">The search agents collect information and return their findings.</li>
+<li class="">The orchestrator combines the results and identifies missing information.</li>
+<li class="">An analysis agent compares the competitors using the collected evidence.</li>
+<li class="">A verification agent checks important claims and identifies unsupported conclusions.</li>
+<li class="">The orchestrator integrates the verified results into the final report.</li>
+</ol>
+<p>The orchestrator remains responsible for the overall objective, while the sub-agents focus on their individual tasks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-separate-responsibilities">Why Separate Responsibilities?<a href="#why-separate-responsibilities" class="hash-link" aria-label="Direct link to Why Separate Responsibilities?" title="Direct link to Why Separate Responsibilities?" translate="no">​</a></h3>
+<p>This architecture offers several potential benefits.</p>
+<p><strong>Focused responsibilities</strong></p>
+<p>A search agent does not need to manage the entire research plan. It can concentrate on finding and summarizing relevant sources.</p>
+<p><strong>More manageable context</strong></p>
+<p>Each agent can work with a smaller, task-specific context instead of receiving the entire conversation history.</p>
+<p><strong>Flexible model selection</strong></p>
+<p>A planning task may require stronger reasoning capabilities, while a straightforward search or classification task may work well with a faster, less expensive model.</p>
+<p><strong>Independent evaluation</strong></p>
+<p>Different components can be tested separately. If search quality is poor, you can investigate the search agent without immediately redesigning the entire system.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="do-you-always-need-multiple-agents">Do You Always Need Multiple Agents?<a href="#do-you-always-need-multiple-agents" class="hash-link" aria-label="Direct link to Do You Always Need Multiple Agents?" title="Direct link to Do You Always Need Multiple Agents?" translate="no">​</a></h3>
+<p>No.</p>
+<p>Multi-agent architectures introduce coordination overhead. The orchestrator must delegate tasks, process outputs, manage failures, and reconcile potentially conflicting findings.</p>
+<p>A single agent may be simpler and more cost-effective for tasks that do not require specialized responsibilities.</p>
+<p>Use sub-agents when dividing the work provides a meaningful benefit, such as reducing context complexity, enabling independent research, or supporting specialized execution.</p>
+<p><strong>The key idea:</strong> An orchestrator coordinates the overall goal, while specialized sub-agents handle focused parts of the work.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-context-retrieval-and-persistent-memory">4. Context Retrieval and Persistent Memory<a href="#4-context-retrieval-and-persistent-memory" class="hash-link" aria-label="Direct link to 4. Context Retrieval and Persistent Memory" title="Direct link to 4. Context Retrieval and Persistent Memory" translate="no">​</a></h2>
+<p>Long-running tasks create a memory challenge.</p>
+<p>As an agent searches for information, it accumulates findings, intermediate results, tool outputs, and decisions. Keeping everything in one conversation can make the context increasingly large and difficult to manage.</p>
+<p>Deep Agents can address this problem by storing important information outside the immediate conversation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-persistent-memory">What Is Persistent Memory?<a href="#what-is-persistent-memory" class="hash-link" aria-label="Direct link to What Is Persistent Memory?" title="Direct link to What Is Persistent Memory?" translate="no">​</a></h3>
+<p><strong>Persistent memory</strong> is information stored so that the system can retrieve and reuse it beyond the immediate model interaction.</p>
+<p>Depending on the application, the stored information might include:</p>
+<ul>
+<li class="">Research notes and summaries.</li>
+<li class="">Task lists and execution status.</li>
+<li class="">Source references and extracted evidence.</li>
+<li class="">Intermediate analysis results.</li>
+<li class="">Files created during execution.</li>
+<li class="">Relevant information from previous interactions.</li>
+</ul>
+<p>For example, a research agent might save a summary of the competitor analysis to a file rather than repeatedly including every original search result in its context.</p>
+<p>Later, when the agent needs to compare pricing, it can retrieve the relevant findings and continue working.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="different-ways-to-store-information">Different Ways to Store Information<a href="#different-ways-to-store-information" class="hash-link" aria-label="Direct link to Different Ways to Store Information" title="Direct link to Different Ways to Store Information" translate="no">​</a></h3>
+<p>There are several ways to provide external memory.</p>
+<p><strong>Files and documents</strong></p>
+<p>Useful for research notes, reports, code, structured plans, and other intermediate work.</p>
+<p><strong>Databases</strong></p>
+<p>Useful for structured information such as task status, customer records, and execution history.</p>
+<p><strong>Vector databases</strong></p>
+<p>Useful for retrieving relevant passages or documents based on semantic similarity.</p>
+<p><strong>Conversation or task state</strong></p>
+<p>Useful for preserving the current objective, completed steps, pending work, and other information needed to resume execution.</p>
+<p>These approaches solve different problems. A vector database is not a replacement for a structured task tracker, and a task tracker is not necessarily the best place to store large documents.</p>
+<p>The appropriate storage depends on what information must be preserved and how it needs to be retrieved.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="context-retrieval">Context Retrieval<a href="#context-retrieval" class="hash-link" aria-label="Direct link to Context Retrieval" title="Direct link to Context Retrieval" translate="no">​</a></h3>
+<p>Storing information is only half of the problem. The agent must also retrieve the appropriate information when needed.</p>
+<p>Suppose a research agent has collected information about ten competitors. When investigating one competitor&#x27;s pricing, it should retrieve the relevant notes rather than loading every finding from the entire investigation.</p>
+<p>The system can retrieve information using several approaches.</p>
+<p><strong>Keyword search</strong> finds information containing specific terms.</p>
+<p><strong>Semantic search</strong> finds information related to a query based on meaning rather than exact wording.</p>
+<p><strong>Structured lookup</strong> retrieves information using identifiers, filters, or predefined database queries.</p>
+<p>A more advanced system can combine these approaches and select an appropriate retrieval strategy for the task.</p>
+<p>For example, it might use a structured query to retrieve the current status of a research task, then use semantic search to locate relevant evidence in previously collected documents.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="memory-requires-careful-management">Memory Requires Careful Management<a href="#memory-requires-careful-management" class="hash-link" aria-label="Direct link to Memory Requires Careful Management" title="Direct link to Memory Requires Careful Management" translate="no">​</a></h3>
+<p>Persistent storage does not automatically make an agent more reliable.</p>
+<p>Stored information can become outdated, incomplete, duplicated, or associated with the wrong task.</p>
+<p>A good memory design should distinguish between current state, historical findings, verified facts, and unresolved assumptions.</p>
+<p>It should also preserve relevant source references and update information when newer evidence changes an earlier conclusion.</p>
+<p><strong>The key idea:</strong> Persistent memory allows an agent to preserve important work, while context retrieval helps it access the information needed for the current step without carrying everything into every model interaction.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-context-engineering-for-deep-agents">5. Context Engineering for Deep Agents<a href="#5-context-engineering-for-deep-agents" class="hash-link" aria-label="Direct link to 5. Context Engineering for Deep Agents" title="Direct link to 5. Context Engineering for Deep Agents" translate="no">​</a></h2>
+<p>You&#x27;ve already learned that context engineering involves designing the information available to an AI agent.</p>
+<p>For a Deep Agent, context engineering becomes especially important because the system may involve multiple agents, numerous tools, persistent memory, and long-running task plans.</p>
+<p>The challenge is not simply writing a detailed system prompt. It is deciding which information each component needs, how instructions should be organized, and how context should change as the work progresses.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="make-instructions-explicit">Make Instructions Explicit<a href="#make-instructions-explicit" class="hash-link" aria-label="Direct link to Make Instructions Explicit" title="Direct link to Make Instructions Explicit" translate="no">​</a></h3>
+<p>The orchestrator should know when to create a plan, when to delegate work, and how to track results.</p>
+<p>A search agent should know what information to collect, which tools it can use, and what its response must contain.</p>
+<p>A verification agent should know what evidence to check and how to report unsupported claims.</p>
+<p>For example, an orchestrator might follow these instructions:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">ORCHESTRATION RULES</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">1. Break complex requests into manageable tasks.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2. Record tasks before delegating them.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">3. Delegate specialized work to the appropriate sub-agent.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">4. Provide each sub-agent with only the context needed for its task.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">5. Record and review each returned result.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">6. Revisit the plan when new information changes the required work.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">7. Verify that important tasks are completed or explicitly</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   identified as unresolved before returning the final result.</span><br></span></code></pre></div></div>
+<p>These instructions describe expectations that the orchestrator can apply across different research tasks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="define-how-agents-collaborate">Define How Agents Collaborate<a href="#define-how-agents-collaborate" class="hash-link" aria-label="Direct link to Define How Agents Collaborate" title="Direct link to Define How Agents Collaborate" translate="no">​</a></h3>
+<p>When several agents work together, the system needs clear communication rules.</p>
+<p>For example, each sub-agent might be required to return:</p>
+<ul>
+<li class="">Its task identifier.</li>
+<li class="">Its completion status.</li>
+<li class="">Its findings.</li>
+<li class="">Supporting sources or evidence.</li>
+<li class="">Any errors or limitations.</li>
+<li class="">Questions that require further investigation.</li>
+</ul>
+<p>A consistent response format makes it easier for the orchestrator to integrate the results.</p>
+<p>It is also important to define what happens when agents disagree. The orchestrator should not automatically accept whichever answer appears most confident. Conflicting claims may require additional evidence or independent verification.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="manage-context-deliberately">Manage Context Deliberately<a href="#manage-context-deliberately" class="hash-link" aria-label="Direct link to Manage Context Deliberately" title="Direct link to Manage Context Deliberately" translate="no">​</a></h3>
+<p>Deep Agents should not receive every available instruction and every stored result by default.</p>
+<p>Instead, provide the context that is relevant to the current operation.</p>
+<p>A search agent might need a query, a source restriction, and an expected output format. It usually does not need the complete research conversation.</p>
+<p>The orchestrator, by contrast, needs enough information to understand the overall objective and integrate the results.</p>
+<p>This approach keeps responsibilities distinct and makes context easier to maintain.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="keep-instructions-consistent">Keep Instructions Consistent<a href="#keep-instructions-consistent" class="hash-link" aria-label="Direct link to Keep Instructions Consistent" title="Direct link to Keep Instructions Consistent" translate="no">​</a></h3>
+<p>Context often comes from several places: system prompts, task-specific instructions, tool descriptions, retrieved documents, and stored state.</p>
+<p>These sources should not contradict one another.</p>
+<p>For example, the system prompt might require the agent to verify every source, while a task instruction tells it to produce the final report immediately after the first search.</p>
+<p>Such conflicts can lead to unpredictable behavior.</p>
+<p>Review the entire context design, not just the main prompt, when investigating inconsistent results.</p>
+<p><strong>The key idea:</strong> Context engineering makes sure each component has the relevant instructions and information needed to perform its responsibilities effectively.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-verification-checking-the-agents-work">6. Verification: Checking the Agent&#x27;s Work<a href="#6-verification-checking-the-agents-work" class="hash-link" aria-label="Direct link to 6. Verification: Checking the Agent&#x27;s Work" title="Direct link to 6. Verification: Checking the Agent&#x27;s Work" translate="no">​</a></h2>
+<p>A Deep Agent may perform many operations and produce a detailed result, but complexity does not guarantee correctness.</p>
+<p>The system might retrieve inaccurate information, misinterpret a source, overlook a required task, or combine findings into an unsupported conclusion.</p>
+<p>This is why <strong>verification</strong> is an important part of the architecture.</p>
+<p>Verification involves checking whether the agent&#x27;s outputs and actions satisfy the required standards.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-should-be-verified">What Should Be Verified?<a href="#what-should-be-verified" class="hash-link" aria-label="Direct link to What Should Be Verified?" title="Direct link to What Should Be Verified?" translate="no">​</a></h3>
+<p>Different tasks require different forms of verification.</p>
+<p>For a research agent, you might check:</p>
+<ul>
+<li class="">Whether important claims have supporting sources.</li>
+<li class="">Whether the sources actually support those claims.</li>
+<li class="">Whether publication dates and other relevant details are accurate.</li>
+<li class="">Whether conflicting findings have been acknowledged.</li>
+<li class="">Whether all required research questions have been addressed.</li>
+<li class="">Whether the final report follows the requested format.</li>
+</ul>
+<p>For a coding agent, verification might involve running tests, checking program behavior, and examining whether the implementation satisfies the requirements.</p>
+<p>For a customer support agent, it might involve checking the relevant account records and confirming that the proposed action follows the applicable policy.</p>
+<p>Verification should be tailored to the task rather than treated as a generic instruction to &quot;check your work.&quot;</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="automated-verification">Automated Verification<a href="#automated-verification" class="hash-link" aria-label="Direct link to Automated Verification" title="Direct link to Automated Verification" translate="no">​</a></h3>
+<p>A system can use tools or specialized evaluation components to check outputs.</p>
+<p>For example, a research report verifier might examine whether each major factual claim includes a source reference and whether the references can be retrieved.</p>
+<p>An LLM-based evaluator can also assess qualities such as relevance, completeness, and consistency against an explicit rubric.</p>
+<p>This approach is sometimes called <strong>LLM-as-a-Judge</strong>.</p>
+<p>However, a language model evaluating another language model is not an infallible source of truth. The evaluator may repeat similar mistakes or approve a convincing but incorrect claim.</p>
+<p>Whenever possible, combine model-based evaluation with external evidence, deterministic checks, or tests.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-verification">Human Verification<a href="#human-verification" class="hash-link" aria-label="Direct link to Human Verification" title="Direct link to Human Verification" translate="no">​</a></h3>
+<p>Some decisions require human judgment or authorization.</p>
+<p>For example, an agent might prepare a financial analysis, but an analyst should review the result before it is used to make a consequential decision.</p>
+<p>Likewise, an agent that proposes a significant account change may need explicit approval before executing it.</p>
+<p>Human review is particularly useful when errors have substantial consequences, the evidence is ambiguous, or the system operates outside its validated conditions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verification-should-influence-what-happens-next">Verification Should Influence What Happens Next<a href="#verification-should-influence-what-happens-next" class="hash-link" aria-label="Direct link to Verification Should Influence What Happens Next" title="Direct link to Verification Should Influence What Happens Next" translate="no">​</a></h3>
+<p>Verification is more useful when its results can guide further work.</p>
+<p>Suppose a verification agent discovers that two important claims in a research report lack reliable evidence.</p>
+<p>Instead of simply labeling the report as incorrect, the system can send those claims back for further investigation.</p>
+<p>The orchestrator may create additional search tasks, retrieve alternative sources, and update the report before running verification again.</p>
+<p>The process becomes:</p>
+<ol>
+<li class="">Produce an initial result.</li>
+<li class="">Verify the result against defined requirements.</li>
+<li class="">Identify failures or missing evidence.</li>
+<li class="">Perform additional work where necessary.</li>
+<li class="">Verify the revised result.</li>
+</ol>
+<p>This does not mean every result must pass through endless review. Systems should define appropriate retry limits and clear completion criteria.</p>
+<p><strong>The key idea:</strong> Verification turns quality checks into a deliberate part of the execution process instead of relying entirely on the agent&#x27;s confidence in its own answer.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-putting-the-components-together">7. Putting the Components Together<a href="#7-putting-the-components-together" class="hash-link" aria-label="Direct link to 7. Putting the Components Together" title="Direct link to 7. Putting the Components Together" translate="no">​</a></h2>
+<p>Let&#x27;s combine these ideas in a practical example.</p>
+<p>Imagine you&#x27;re building a Deep Agent to power a customer support system for an online learning platform.</p>
+<p>Students may ask about courses, payment issues, enrollment, certificates, or technical problems.</p>
+<p>Some requests are straightforward. Others require the system to consult several sources, investigate an issue, and coordinate multiple actions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-architecture">The Architecture<a href="#the-architecture" class="hash-link" aria-label="Direct link to The Architecture" title="Direct link to The Architecture" translate="no">​</a></h3>
+<p>The system could contain the following components:</p>
+<table><thead><tr><th>Component</th><th>Responsibility</th></tr></thead><tbody><tr><td><strong>Orchestrator</strong></td><td>Understands the request, creates the plan, and coordinates the work</td></tr><tr><td><strong>Knowledge Retrieval Agent</strong></td><td>Searches approved course documentation and support articles</td></tr><tr><td><strong>Account Lookup Tool or Agent</strong></td><td>Retrieves authorized enrollment and account information</td></tr><tr><td><strong>Analysis Component</strong></td><td>Uses the collected information to determine the likely answer or next step</td></tr><tr><td><strong>Verification Component</strong></td><td>Checks the proposed response against the available evidence and applicable rules</td></tr><tr><td><strong>Persistent Storage</strong></td><td>Maintains task state, relevant notes, and execution records</td></tr></tbody></table>
+<p>Not every component needs to be a separate agent. A database lookup may be better implemented as an ordinary function, while a specialized agent may be useful for interpreting a complex collection of documents.</p>
+<p>The architecture should reflect the actual requirements rather than turning every operation into an agent.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-request-in-action">A Request in Action<a href="#a-request-in-action" class="hash-link" aria-label="Direct link to A Request in Action" title="Direct link to A Request in Action" translate="no">​</a></h3>
+<p>Suppose a student asks:</p>
+<blockquote>
+<p>I completed a course, but I can&#x27;t find my certificate. Can you help me?</p>
+</blockquote>
+<p>The system might proceed as follows.</p>
+<p><strong>Step 1: Understand the request</strong></p>
+<p>The orchestrator identifies that the student needs help locating a course certificate.</p>
+<p><strong>Step 2: Plan the investigation</strong></p>
+<p>It determines that it may need to review the certificate instructions and check the student&#x27;s enrollment or completion status.</p>
+<p><strong>Step 3: Retrieve relevant information</strong></p>
+<p>The knowledge retrieval component searches approved documentation for the certificate requirements and delivery process.</p>
+<p><strong>Step 4: Check authorized account information</strong></p>
+<p>If the system has permission to access the student&#x27;s account, it retrieves the relevant course completion status.</p>
+<p><strong>Step 5: Evaluate the findings</strong></p>
+<p>The orchestrator determines whether the available information explains the problem.</p>
+<p>If the student has not completed the required steps, the response might explain what remains. If the completion requirements are satisfied but the certificate is missing, the issue may require further investigation.</p>
+<p><strong>Step 6: Verify the response</strong></p>
+<p>The system checks that its answer is consistent with the documentation and retrieved account information.</p>
+<p><strong>Step 7: Respond or escalate</strong></p>
+<p>The agent provides an evidence-based response or routes the unresolved issue to a human support representative.</p>
+<p>Throughout the process, the system can record task progress and preserve relevant information needed to resume the investigation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-this-is-more-than-a-chatbot">Why This Is More Than a Chatbot<a href="#why-this-is-more-than-a-chatbot" class="hash-link" aria-label="Direct link to Why This Is More Than a Chatbot" title="Direct link to Why This Is More Than a Chatbot" translate="no">​</a></h3>
+<p>A basic chatbot might respond with general advice about downloading a certificate.</p>
+<p>The Deep Agent architecture can coordinate several operations to investigate the student&#x27;s actual situation, while using tools and documented policies to guide its response.</p>
+<p>However, the architecture does not guarantee a correct result. The quality of the outcome still depends on the retrieved information, tool reliability, permissions, instructions, and verification process.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-when-should-you-build-a-deep-agent">8. When Should You Build a Deep Agent?<a href="#8-when-should-you-build-a-deep-agent" class="hash-link" aria-label="Direct link to 8. When Should You Build a Deep Agent?" title="Direct link to 8. When Should You Build a Deep Agent?" translate="no">​</a></h2>
+<p>Deep Agent architectures are useful for some demanding tasks, but they are not the right choice for everything.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-a-deep-agent-when">Use a Deep Agent When...<a href="#use-a-deep-agent-when" class="hash-link" aria-label="Direct link to Use a Deep Agent When..." title="Direct link to Use a Deep Agent When..." translate="no">​</a></h3>
+<ul>
+<li class="">The task involves many interdependent subtasks.</li>
+<li class="">The execution plan may need to change as new information is discovered.</li>
+<li class="">The system must preserve substantial intermediate work.</li>
+<li class="">Different subtasks benefit from specialized capabilities.</li>
+<li class="">The final result requires independent verification.</li>
+<li class="">The task may need to recover from failures and resume unfinished work.</li>
+</ul>
+<p>Examples include deep research, complex coding projects, extensive data analysis, and support investigations that involve multiple information sources.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-simpler-agent-may-be-better-when">A Simpler Agent May Be Better When...<a href="#a-simpler-agent-may-be-better-when" class="hash-link" aria-label="Direct link to A Simpler Agent May Be Better When..." title="Direct link to A Simpler Agent May Be Better When..." translate="no">​</a></h3>
+<ul>
+<li class="">The task has only a few steps.</li>
+<li class="">The required tools and execution path are straightforward.</li>
+<li class="">Most operations can be completed within a short interaction.</li>
+<li class="">Additional planning and delegation would add unnecessary overhead.</li>
+<li class="">The task does not require substantial persistent memory.</li>
+</ul>
+<p>For example, an agent that retrieves a shipping status and explains it probably does not need a planner, several sub-agents, an external memory system, and a dedicated verification agent.</p>
+<p>A direct tool call with appropriate validation may be sufficient.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="consider-the-trade-offs">Consider the Trade-Offs<a href="#consider-the-trade-offs" class="hash-link" aria-label="Direct link to Consider the Trade-Offs" title="Direct link to Consider the Trade-Offs" translate="no">​</a></h3>
+<p>Deep Agent architectures can improve organization and support more complex work, but they also introduce costs and failure modes.</p>
+<table><thead><tr><th>Benefit</th><th>Potential Trade-Off</th></tr></thead><tbody><tr><td>Structured planning</td><td>Maintaining and updating the plan introduces additional work</td></tr><tr><td>Specialized agents</td><td>Delegation and coordination increase complexity</td></tr><tr><td>Persistent memory</td><td>Storage, retrieval, and stale information require management</td></tr><tr><td>Richer context</td><td>More context can increase latency and token costs</td></tr><tr><td>Dedicated verification</td><td>Additional checks require time and resources</td></tr><tr><td>Flexible execution</td><td>More decisions create more opportunities for unexpected behavior</td></tr></tbody></table>
+<p>The goal is to choose an architecture that matches the task&#x27;s complexity and reliability requirements.</p>
+<p><strong>Start simple and introduce additional components only when they solve a demonstrated problem.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-try-it-yourself">9. Try It Yourself<a href="#9-try-it-yourself" class="hash-link" aria-label="Direct link to 9. Try It Yourself" title="Direct link to 9. Try It Yourself" translate="no">​</a></h2>
+<p><strong>Task:</strong> Imagine you&#x27;re building an AI system that investigates why a small business&#x27;s sales dropped during the previous month.</p>
+<p>The system has access to sales records, product information, customer feedback, and external market research.</p>
+<p>Your first version is a simple agent that receives the question, performs a few searches, and generates a report.</p>
+<p>However, the agent sometimes overlooks relevant data, repeats its searches, and makes unsupported claims about why sales declined.</p>
+<p>Design a Deep Agent architecture to improve the system.</p>
+<p>Answer the following questions:</p>
+<ol>
+<li class="">How would the agent break down the investigation into tasks?</li>
+<li class="">Which responsibilities should belong to the orchestrator, and which could be delegated to specialized components?</li>
+<li class="">What information should be stored in persistent memory?</li>
+<li class="">How should the system retrieve information when it needs to revisit a previous finding?</li>
+<li class="">What should the verification component check before the final report is submitted?</li>
+<li class="">How would the system handle missing data or conflicting evidence?</li>
+</ol>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary><strong>Example Answer</strong></summary><div><div class="collapsibleContent_i85q"><div><p><strong>1. Create a structured research plan</strong></p><p>The orchestrator could create tasks to examine changes in total revenue, product-level sales, customer feedback, and relevant market conditions.</p><p>It would record each task&#x27;s status and update the plan as new findings reveal additional questions.</p><p><strong>2. Separate responsibilities</strong></p><p>The orchestrator would coordinate the investigation and integrate the results.</p><p>Specialized components could retrieve sales data, analyze product performance, summarize customer feedback, and research external market conditions.</p><p>A separate verification component could check important claims before the report is finalized.</p><p><strong>3. Store useful information</strong></p><p>Persistent storage could contain the research plan, task statuses, relevant data summaries, source references, calculations, and unresolved questions.</p><p>The system should distinguish verified findings from assumptions and hypotheses.</p><p><strong>4. Retrieve previous findings</strong></p><p>The agent could use structured queries to retrieve task statuses and sales metrics, then use keyword or semantic search to locate relevant research notes.</p><p>This allows it to revisit useful findings without repeating the entire investigation.</p><p><strong>5. Verify the final report</strong></p><p>The verification component should check whether calculations match the underlying data, important claims have supporting evidence, alternative explanations have been considered, and the report clearly distinguishes facts from hypotheses.</p><p><strong>6. Handle uncertainty</strong></p><p>If data is missing, the system should identify the limitation and investigate alternative sources when appropriate.</p><p>If evidence conflicts, it should compare the reliability and relevance of the sources instead of selecting whichever explanation appears most convincing.</p><p>If the available evidence does not establish why sales declined, the final report should present plausible explanations as hypotheses rather than confirmed causes.</p></div></div></div></details>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What&#x27;s Next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s Next" title="Direct link to What&#x27;s Next" translate="no">​</a></h2>
+<p>You&#x27;ve now learned how Deep Agents combine structured planning, orchestration, specialized sub-agents, persistent memory, context engineering, and verification to manage complex tasks.</p>
+<p>The key takeaway is that <strong>a Deep Agent is not simply an agent that performs more tool calls; it is a system designed to organize, preserve, coordinate, and verify work across a long-running task</strong>.</p>
+<p>These capabilities can make sophisticated AI applications more manageable, but they also require deliberate architectural choices and careful evaluation.</p>
+<p>As you continue building agentic systems, pay particular attention to how you verify intermediate results and final outputs. Reliable execution is not just about completing a task—it&#x27;s about establishing that the result satisfies the requirements and is supported by appropriate evidence.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/khaledlajili/open-prompting-guide/tree/main/docs/ai-agents/deep-agents.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/open-prompting-guide/docs/ai-agents/function-calling"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Function Calling in AI Agents</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-what-are-deep-agents" class="table-of-contents__link toc-highlight">1. What Are Deep Agents?</a><ul><li><a href="#shallow-agents-vs-deep-agents" class="table-of-contents__link toc-highlight">Shallow Agents vs. Deep Agents</a></li></ul></li><li><a href="#2-planning-turning-large-goals-into-manageable-tasks" class="table-of-contents__link toc-highlight">2. Planning: Turning Large Goals into Manageable Tasks</a><ul><li><a href="#create-a-structured-plan" class="table-of-contents__link toc-highlight">Create a Structured Plan</a></li><li><a href="#a-plan-should-evolve" class="table-of-contents__link toc-highlight">A Plan Should Evolve</a></li><li><a href="#why-planning-matters" class="table-of-contents__link toc-highlight">Why Planning Matters</a></li></ul></li><li><a href="#3-orchestrator-and-sub-agent-architecture" class="table-of-contents__link toc-highlight">3. Orchestrator and Sub-Agent Architecture</a><ul><li><a href="#what-is-an-orchestrator" class="table-of-contents__link toc-highlight">What Is an Orchestrator?</a></li><li><a href="#what-are-sub-agents" class="table-of-contents__link toc-highlight">What Are Sub-Agents?</a></li><li><a href="#how-do-they-work-together" class="table-of-contents__link toc-highlight">How Do They Work Together?</a></li><li><a href="#why-separate-responsibilities" class="table-of-contents__link toc-highlight">Why Separate Responsibilities?</a></li><li><a href="#do-you-always-need-multiple-agents" class="table-of-contents__link toc-highlight">Do You Always Need Multiple Agents?</a></li></ul></li><li><a href="#4-context-retrieval-and-persistent-memory" class="table-of-contents__link toc-highlight">4. Context Retrieval and Persistent Memory</a><ul><li><a href="#what-is-persistent-memory" class="table-of-contents__link toc-highlight">What Is Persistent Memory?</a></li><li><a href="#different-ways-to-store-information" class="table-of-contents__link toc-highlight">Different Ways to Store Information</a></li><li><a href="#context-retrieval" class="table-of-contents__link toc-highlight">Context Retrieval</a></li><li><a href="#memory-requires-careful-management" class="table-of-contents__link toc-highlight">Memory Requires Careful Management</a></li></ul></li><li><a href="#5-context-engineering-for-deep-agents" class="table-of-contents__link toc-highlight">5. Context Engineering for Deep Agents</a><ul><li><a href="#make-instructions-explicit" class="table-of-contents__link toc-highlight">Make Instructions Explicit</a></li><li><a href="#define-how-agents-collaborate" class="table-of-contents__link toc-highlight">Define How Agents Collaborate</a></li><li><a href="#manage-context-deliberately" class="table-of-contents__link toc-highlight">Manage Context Deliberately</a></li><li><a href="#keep-instructions-consistent" class="table-of-contents__link toc-highlight">Keep Instructions Consistent</a></li></ul></li><li><a href="#6-verification-checking-the-agents-work" class="table-of-contents__link toc-highlight">6. Verification: Checking the Agent&#39;s Work</a><ul><li><a href="#what-should-be-verified" class="table-of-contents__link toc-highlight">What Should Be Verified?</a></li><li><a href="#automated-verification" class="table-of-contents__link toc-highlight">Automated Verification</a></li><li><a href="#human-verification" class="table-of-contents__link toc-highlight">Human Verification</a></li><li><a href="#verification-should-influence-what-happens-next" class="table-of-contents__link toc-highlight">Verification Should Influence What Happens Next</a></li></ul></li><li><a href="#7-putting-the-components-together" class="table-of-contents__link toc-highlight">7. Putting the Components Together</a><ul><li><a href="#the-architecture" class="table-of-contents__link toc-highlight">The Architecture</a></li><li><a href="#a-request-in-action" class="table-of-contents__link toc-highlight">A Request in Action</a></li><li><a href="#why-this-is-more-than-a-chatbot" class="table-of-contents__link toc-highlight">Why This Is More Than a Chatbot</a></li></ul></li><li><a href="#8-when-should-you-build-a-deep-agent" class="table-of-contents__link toc-highlight">8. When Should You Build a Deep Agent?</a><ul><li><a href="#use-a-deep-agent-when" class="table-of-contents__link toc-highlight">Use a Deep Agent When...</a></li><li><a href="#a-simpler-agent-may-be-better-when" class="table-of-contents__link toc-highlight">A Simpler Agent May Be Better When...</a></li><li><a href="#consider-the-trade-offs" class="table-of-contents__link toc-highlight">Consider the Trade-Offs</a></li></ul></li><li><a href="#9-try-it-yourself" class="table-of-contents__link toc-highlight">9. Try It Yourself</a></li><li><a href="#whats-next" class="table-of-contents__link toc-highlight">What&#39;s Next</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Prompting Guide.</div></div></div></footer></div>
+</body>
+</html>
