@@ -1,0 +1,249 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Fonts (XeLaTeX) ---
+\usepackage{fontspec}
+
+\setmainfont[
+    Path = fonts/lexend/ ,
+    UprightFont = Lexend-Regular.ttf ,
+    BoldFont    = Lexend-Bold.ttf ,
+    ItalicFont  = Lexend-Regular.ttf ,
+    BoldItalicFont = Lexend-Bold.ttf ,
+    FontFace = {t}{n}{Lexend-Thin.ttf} ,
+    FontFace = {el}{n}{Lexend-ExtraLight.ttf} ,
+    FontFace = {l}{n}{Lexend-Light.ttf} ,
+    FontFace = {m}{n}{Lexend-Medium.ttf} ,
+    FontFace = {sb}{n}{Lexend-SemiBold.ttf} ,
+    FontFace = {eb}{n}{Lexend-ExtraBold.ttf} ,
+    FontFace = {bl}{n}{Lexend-Black.ttf}
+]{Lexend}
+
+
+\setsansfont{DejaVu Sans}
+\setmonofont{Fira Code}
+
+% --- Page layout ---
+\usepackage{geometry}
+\geometry{margin=1in}
+
+% --- Micro typographic niceties ---
+\usepackage{microtype}
+
+% --- Colors ---
+\usepackage{xcolor}
+\definecolor{noteBg}{HTML}{E7F5FF}
+\definecolor{noteBorder}{HTML}{1C7ED6}
+\definecolor{tipBg}{HTML}{EBFBEE}
+\definecolor{tipBorder}{HTML}{37B24D}
+\definecolor{infoBg}{HTML}{E3FAFC}
+\definecolor{infoBorder}{HTML}{0C8599}
+\definecolor{warningBg}{HTML}{FFF9DB}
+\definecolor{warningBorder}{HTML}{F59F00}
+\definecolor{dangerBg}{HTML}{FFF5F5}
+\definecolor{dangerBorder}{HTML}{E03131}
+\definecolor{codeBg}{HTML}{F6F8FA}
+\definecolor{codeFrame}{HTML}{D0D7DE}
+
+% for breakable X columns (combines longtable + tabularx features)
+\usepackage{ltablex}
+\keepXColumns
+
+% --- Tables: longtable, booktabs, tabularx for wrapping columns ---
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{caption}
+\usepackage{etoolbox}
+\captionsetup[table]{skip=6pt}
+
+% Enhanced table column types with better wrapping
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.3}
+
+% Fix table background colors
+\usepackage{colortbl}
+\definecolor{tableHeader}{HTML}{F6F8FA}
+\definecolor{tableRow}{HTML}{FFFFFF}
+\definecolor{tableOdd}{HTML}{FFFFFF}
+\definecolor{tableEven}{HTML}{F6F8FA}
+\setlength{\arrayrulewidth}{0.5pt}
+
+% --- Fix for table counter issue ---
+\makeatletter
+\@ifundefined{c@none}{\newcounter{none}}{}
+\makeatother
+
+\usepackage{graphicx}
+
+% define macro for the emoji
+\newcommand{\bulb}{\includegraphics[height=1em]{icons/lightbulb.png}}
+\newcommand{\fire}{\includegraphics[height=1em]{icons/fire.png}}
+\newcommand{\warning}{\includegraphics[height=1em]{icons/warning.png}}
+\newcommand{\note}{\includegraphics[height=1em]{icons/post-it.png}}
+\newcommand{\info}{\includegraphics[height=1em]{icons/information.png}}
+
+% --- Admonitions (Docusaurus-like boxes) ---
+\usepackage[most]{tcolorbox}
+\tcbset{
+  enhanced,
+  sharp corners,
+  boxrule=1.5pt,
+  left=8pt,
+  right=8pt,
+  top=8pt,
+  bottom=8pt,
+  arc=0mm
+}
+
+\newtcolorbox{notebox}{
+  colback=noteBg,
+  colframe=noteBorder,
+  fonttitle=\bfseries\large,
+  coltitle=noteBorder
+}
+
+\newtcolorbox{tipbox}{
+  colback=tipBg,
+  colframe=tipBorder,
+  fonttitle=\bfseries\large,
+  coltitle=tipBorder
+}
+
+\newtcolorbox{infobox}{
+  colback=infoBg,
+  colframe=infoBorder,
+  fonttitle=\bfseries\large,
+  coltitle=infoBorder
+}
+
+\newtcolorbox{warningbox}{
+  colback=warningBg,
+  colframe=warningBorder,
+  fonttitle=\bfseries\large,
+  coltitle=warningBorder
+}
+
+\newtcolorbox{dangerbox}{
+  colback=dangerBg,
+  colframe=dangerBorder,
+  fonttitle=\bfseries\large,
+  coltitle=dangerBorder
+}
+
+% --- Blockquotes (for LLM responses) ---
+\usepackage{mdframed}
+\newmdenv[
+  leftmargin=0pt,
+  rightmargin=0pt,
+  innerleftmargin=15pt,
+  innerrightmargin=10pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  linewidth=3pt,
+  linecolor=gray!40,
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  backgroundcolor=gray!5,
+  skipabove=10pt,
+  skipbelow=10pt
+]{blockquote}
+
+% --- Code Blocks (minted) ---
+\usepackage{fvextra}
+\usepackage{minted}
+
+% Configure minted globally
+\setminted{
+  fontsize=\small,
+  bgcolor=codeBg,
+  frame=single,
+  framerule=1pt,
+  rulecolor=codeFrame,
+  framesep=8pt,
+  linenos=false,
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbol={},
+  autogobble=true,
+  tabsize=2,
+  python3=true
+}
+
+% Override for inline code
+\definecolor{inlinecodeBg}{HTML}{F6F8FA}
+\newcommand{\passthrough}[1]{\colorbox{inlinecodeBg}{\texttt{#1}}}
+
+% --- Hyperlinks ---
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfborder={0 0 0}
+}
+
+% --- Fix generated tight lists ---
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% --- Better spacing ---
+\usepackage{parskip}
+\setlength{\parskip}{0.5em}
+
+
+% --- Title ---
+\title{Introduction to Prompt Engineering}
+\author{}
+
+\begin{document}
+
+% ====================== COVER PAGE ======================
+\thispagestyle{empty}
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    % === LOGO ===
+    \includegraphics[width=0.25\textwidth]{icons/logo.png}   % ← change filename if needed
+    \vspace{1.2cm}
+
+    % Main title
+    {\Huge\bfseries Open Prompting Guide\par}
+    \vspace{1.5cm}
+
+    % Subtitle
+    {\LARGE A Practical Guide to Getting Better Results from Large Language Models\par}
+    \vspace{2cm}
+
+    % Author
+    {\large\itshape Khaled Lajili\par}
+    \vspace{0.5cm}
+
+    % Version
+    {\large Version 1.0\par}
+    \vspace{0.5cm}
+
+    % Optional footer
+    {\small \href{https://github.com/khaledlajili/open-prompting-guide}{github.com/khaledlajili/open-prompting-guide}\par}
+    {\small Licensed under CC-BY–SA\par}
+\end{titlepage}
+% ======================================================
+
+
+
+% Add Table of Contents (2 levels: section and subsection)
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
+$BODY$
+
+\end{document}

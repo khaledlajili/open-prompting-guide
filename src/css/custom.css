@@ -1,0 +1,37 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+@import url('https://googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* You can override the default Infima variables here. */
+:root {
+    --ifm-color-primary: #2C54A5;
+    --ifm-color-primary-dark: #254a93;
+    --ifm-color-primary-darker: #224587;
+    --ifm-color-primary-darkest: #1b386f;
+    --ifm-color-primary-light: #3f66b6;
+    --ifm-color-primary-lighter: #4c74c1;
+    --ifm-color-primary-lightest: #6b8ed0;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-font-family-base: "IBM Plex Sans", sans-serif;
+}
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+    --ifm-color-primary: #6FA3FF;
+    --ifm-color-primary-dark: #5b93ff;
+    --ifm-color-primary-darker: #4f8bff;
+    --ifm-color-primary-darkest: #2f6ce6;
+    --ifm-color-primary-light: #86b2ff;
+    --ifm-color-primary-lighter: #96bcff;
+    --ifm-color-primary-lightest: #bdd5ff;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Force code blocks to wrap instead of overflow */
+.codeBlockLines,
+.theme-code-block code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Core Techniques",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Essential prompting methods that form the foundation of effective interaction with large language models — from zero-shot and few-shot to Chain-of-Thought, ReAct, and beyond."
+  }
+}

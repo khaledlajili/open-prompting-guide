@@ -1,0 +1,24 @@
+prompt-engineering:
+  label: Prompt Engineering
+  permalink: /prompt-engineering
+  description: Techniques and best practices for designing effective prompts
+
+fundamentals:
+  label: Fundamentals
+  permalink: /fundamentals
+  description: Core concepts and foundational knowledge
+
+llm:
+  label: LLM
+  permalink: /llm
+  description: Large Language Models and related topics
+
+chain-of-thought:
+  label: Chain of Thought
+  permalink: /chain-of-thought
+  description: Step-by-step reasoning techniques for LLMs
+
+advanced:
+  label: Advanced
+  permalink: /advanced
+  description: Advanced prompting and reasoning methods
